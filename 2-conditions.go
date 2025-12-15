@@ -4,34 +4,34 @@ import "fmt"
 
 func kosullar() {
 	if 5 > 3 {
-		fmt.Println("5 is greater than 3")
+		fmt.Println("👍 Örnek karşılaştırma: 5, 3'ten büyüktür")
 	}
 
 	var sayi int = 10
 
 	if sayi%2 == 0 {
-		fmt.Println("The number is even")
+		fmt.Println("🔢 Sayı kontrolü: sayı çifttir (even)")
 	} else {
-		fmt.Println("The number is odd")
+		fmt.Println("🔢 Sayı kontrolü: sayı tektir (odd)")
 	}
 
 	switch sayi {
 	case 1:
-		fmt.Println("The number is one")
+		fmt.Println("🔎 Durum: sayı 1'dir")
 	case 5:
-		fmt.Println("The number is five")
+		fmt.Println("🔎 Durum: sayı 5'tir")
 	case 10:
-		fmt.Println("The number is ten")
+		fmt.Println("🔎 Durum: sayı 10'dur")
 	default:
-		fmt.Println("The number is something else")
+		fmt.Println("🔎 Durum: sayı listede değil")
 	}
 
 	switch {
 	case sayi < 0:
-		fmt.Println("The number is negative")
+		fmt.Println("⚠️ Sayı negatif")
 	case sayi == 0:
-		fmt.Println("The number is zero")
+		fmt.Println("⚠️ Sayı sıfır")
 	case sayi > 0:
-		fmt.Println("The number is positive")
+		fmt.Println("✅ Sayı pozitif")
 	}
 }

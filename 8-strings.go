@@ -14,27 +14,29 @@ Metinler (Strings) Go'da:
   - Birleştirme `+` operatörü veya verimli kullanım için `strings.Builder` ile yapılır
 */
 func metinler() {
-	// UTF-8 bayt indeksleme
+	// Bu fonksiyon Go'da string'lerin nasıl davrandığını gösterir.
+	// UTF-8, byte vs rune farkları ve performans için strings.Builder kullanımı açıklanır.
 	var benimMetin = "résumé"
 	var indekslenen = benimMetin[0]
-	fmt.Println(benimMetin)
-	fmt.Println(indekslenen)
-	fmt.Printf("%v, %T", indekslenen, indekslenen)
+	fmt.Println("💬 Örnek metin:", benimMetin)
+	fmt.Println("🔢 İlk bayt (byte) değeri:", indekslenen)
+	fmt.Printf("🔎 Tip kontrolü: %v, %T\n", indekslenen, indekslenen)
+	fmt.Println("🔁 Rune bazlı yineleme (index, rune):")
 	for i, v := range benimMetin {
-		fmt.Printf("Index: %v, Value: %v", i, v)
+		fmt.Printf("  • İndeks: %v, Rune değeri: %v\n", i, v)
 	}
 
-	fmt.Println("\nThe length of 'myString' is %v", len(benimMetin))
+	fmt.Printf("📏 Metin uzunluğu (bayt): %v\n", len(benimMetin))
 
 	var metinDilimi []string = []string{"r", "é", "s", "u", "m", "é"}
 	var birlesikMetin string
 
 	for i := range metinDilimi {
-		// her seferinde yeni string oluşturulur
+		// her seferinde yeni string oluşturulur (performans maliyeti)
 		birlesikMetin += metinDilimi[i]
 	}
 
-	fmt.Println(birlesikMetin)
+	fmt.Println("✂️ Elle birleştirme sonucu:", birlesikMetin)
 
 	var metinYapici strings.Builder
 	var metinDilimi2 []string = []string{"r", "é", "s", "u", "m", "é"}
@@ -43,5 +45,5 @@ func metinler() {
 		metinYapici.WriteString(metinDilimi2[i])
 	}
 
-	fmt.Println(metinYapici.String())
+	fmt.Println("🚀 strings.Builder ile birleştirme:", metinYapici.String())
 }

@@ -14,54 +14,54 @@ Go'da Temel Veri Tipleri:
 - Boolean Tipi: bool
 */
 func degiskenler() {
+	// Bu fonksiyon Go'nun temel değişken tiplerini gösterir.
+	// Her örnek için kısa bir açıklama ve emoji ile kullanıcıya bilgi veriyoruz.
 	var tamsayi int16 = 32767
-	fmt.Println(tamsayi)
+	fmt.Println("🔢 Tam sayı örneği (int16):", tamsayi)
 
 	var ondalikAzHassas float32 = 12345678.9 // hassasiyet kaybı
 	var ondalikHassas float64 = 12345678.9   // daha hassas
 
-	fmt.Println(ondalikAzHassas)
-	fmt.Println(ondalikHassas)
+	fmt.Println("🔬 float32 (az hassas):", ondalikAzHassas)
+	fmt.Println("🔬 float64 (daha hassas):", ondalikHassas)
 
 	var ondalik32 float32 = 10.1
 	var tamsayi32 int32 = 2
 	var sonuc float32 = ondalik32 + float32(tamsayi32) // doğru dönüşüm
 
-	fmt.Println(sonuc)
+	fmt.Println("➕ Tip dönüşümü örneği, sonuç:", sonuc)
 
 	var benimMetin string = "Hello, \nGo!"
-
+	fmt.Println("💬 String örneği (escape karakterleri gösterilir):")
 	fmt.Println(benimMetin)
-	fmt.Println(len("ğ"))                    // 2 (UTF-8'de 2 byte)
-	fmt.Println(utf8.RuneCountInString("ğ")) // 1 (1 rune)
+
+	fmt.Println("🧾 'ğ' karakterinin byte uzunluğu (len):", len("ğ"))
+	fmt.Println("🔠 'ğ' karakterinin rune sayısı (utf8):", utf8.RuneCountInString("ğ"))
 
 	var benimRune rune = 'a' // ASCII'de 97
-	fmt.Println(benimRune)
+	fmt.Println("🔣 Rune örneği (kod noktası):", benimRune)
 
 	var dogruMu bool = true
-	fmt.Println(dogruMu)
+	fmt.Println("✅ Boolean örneği (true):", dogruMu)
 
 	var digerBool bool // varsayılan değer false
-	fmt.Println(digerBool)
+	fmt.Println("❌ Boolean varsayılan değeri (false):", digerBool)
 
 	var benimMetin2 string
-	fmt.Println(benimMetin2) // varsayılan boş string
+	fmt.Println("🔤 String varsayılan değeri (boş):", benimMetin2)
 
 	var benimRune2 rune
-	fmt.Println(benimRune2) // varsayılan 0
+	fmt.Println("0 değeri olan rune (default):", benimRune2)
 
 	var metinim = "text" // türü string olarak çıkarılır
-
-	fmt.Println(metinim)
+	fmt.Println("✳️ Tür çıkarmaya örnek (string):", metinim)
 
 	kisaDegisken := "short variable declaration" // tür çıkarımı
-
-	fmt.Println(kisaDegisken)
+	fmt.Println("📝 Kısa değişken beyanı örneği:", kisaDegisken)
 
 	var sayi1, sayi2, sayi3 int = 1, 2, 3
-	fmt.Println(sayi1, sayi2, sayi3)
+	fmt.Println("1,2,3 örneği (çoklu atama):", sayi1, sayi2, sayi3)
 
-	const benimSabit = "This is a constant and cannot be changed. Also, it must be initialized at declaration."
-
-	fmt.Println(benimSabit)
+	const benimSabit = "Bu bir sabittir; değeri değiştirilemez ve tanımlanırken başlatılmalıdır."
+	fmt.Println("📌 Sabit örneği:", benimSabit)
 }

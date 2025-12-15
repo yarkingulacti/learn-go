@@ -10,30 +10,30 @@ import "fmt"
 		- Varsayılan olarak sıfır değere sahiptir (ör. int için 0, string için "")
 */
 func haritalar() {
-	// Harita oluşturma
+	// Harita oluşturma (örnekler ve açıklamalar)
 	benimHarita := make(map[string]uint8)
-	fmt.Println(benimHarita)
+	fmt.Println("🗺️ Boş harita örneği:", benimHarita)
 
 	// Atama sırasında anahtar-değer çifti ekleme
 	benimHarita2 := map[string]uint8{"Adam": 30, "Eve": 28}
-	fmt.Println(benimHarita2["Adam"])
-	fmt.Println(benimHarita2["Sarah"]) // varsayılan değer 0
+	fmt.Println("🎯 'Adam' anahtarına karşılık gelen yaş:", benimHarita2["Adam"])
+	fmt.Println("ℹ️ 'Sarah' anahtarı yoksa varsayılan değer:", benimHarita2["Sarah"]) // varsayılan değer 0
 
 	yas, varMi := benimHarita2["Sarah"]
 
 	if varMi {
-		fmt.Println(yas)
+		fmt.Println("✅ Sarah bulundu, yaşı:", yas)
 	} else {
-		fmt.Println("Key does not exist")
+		fmt.Println("❌ Anahtar bulunamadı: Sarah")
 	}
 
 	// bir anahtar-değer çiftini silme
 	delete(benimHarita2, "Adam")
 
-	fmt.Println(benimHarita2)
+	fmt.Println("🗺️ Harita (Adam silindikten sonra):", benimHarita2)
 
 	for anahtar, deger := range benimHarita2 {
-		fmt.Printf("Name: %v, Age: %v\n", anahtar, deger)
+		fmt.Printf("👤 İsim: %v, 🔢 Yaş: %v\n", anahtar, deger)
 	}
 
 }

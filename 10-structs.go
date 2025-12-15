@@ -41,14 +41,19 @@ Yapılar (Structs) Go'da:
 	- 'type' ve 'struct' anahtar kelimeleri ile tanımlanır
 	- Alanlara nokta gösterimi ile erişilir ve değiştirilebilir
 	- Metod desteği ile davranış eklenebilir
+
+Bu dosyada hem benzinli hem elektrikli motor örnekleri ve
+interface kullanımı gösterilmektedir. Örneklerde sahip bilgisi
+ile birlikte motorun kalan mil hesaplaması ve interface uyumu
+gösterilir. 🚗🔋
 */
 func yapilar() {
 	var benimBenzinMotorum benzinMotoru = benzinMotoru{yakitVerimi: 30, galon: 10, sahipBilgisi: sahip{isim: "John"}, sayisal: 10}
 	benimBenzinMotorum.yakitVerimi = 20
 	var benimBenzinMotorum2 benzinMotoru = benzinMotoru{30, 10, sahip{"John"}, 10} // bildirime göre atama
 
-	fmt.Println(benimBenzinMotorum2)
-	fmt.Printf("%v's gas engine can go %v miles\n", benimBenzinMotorum2.sahipBilgisi.isim, benimBenzinMotorum2.yakitVerimi*benimBenzinMotorum2.galon)
+	fmt.Println("🏷️ Benzinli motor örneği:", benimBenzinMotorum2)
+	fmt.Printf("📣 %v'nin benzinli motoru tahmini %v mil gidebilir\n", benimBenzinMotorum2.sahipBilgisi.isim, benimBenzinMotorum2.yakitVerimi*benimBenzinMotorum2.galon)
 
 	// anonim struct tanımı ve örneklendirme
 	var benimElektrikMotorum = struct {
@@ -56,10 +61,10 @@ func yapilar() {
 		sahipBilgisi    sahip
 	}{400, sahip{"Alice"}}
 
-	fmt.Println(benimElektrikMotorum)
+	fmt.Println("🔋 Anonim elektrik motoru örneği:", benimElektrikMotorum)
 
 	var benimBenzinMotorum3 benzinMotoru = benzinMotoru{yakitVerimi: 25, galon: 8, sahipBilgisi: sahip{isim: "Bob"}, sayisal: 5}
-	fmt.Printf("%v's gas engine can go %v miles\n", benimBenzinMotorum3.sahipBilgisi.isim, benimBenzinMotorum3.kalanMil())
+	fmt.Printf("📣 %v'nin benzinli motoru tahmini %v mil gidebilir (metod kullanılarak)\n", benimBenzinMotorum3.sahipBilgisi.isim, benimBenzinMotorum3.kalanMil())
 
 	var mesafe uint8 = 200
 
@@ -67,14 +72,14 @@ func yapilar() {
 	var benimElektrikMotorum2 elektrikMotoru = elektrikMotoru{mpkwh: 4, kwh: 50}
 
 	if yetisebilirMi(benimBenzinMotorum4, mesafe) {
-		fmt.Printf("%v's gas engine can make it %v miles\n", benimBenzinMotorum4.sahipBilgisi.isim, mesafe)
+		fmt.Printf("✅ %v'nin benzinli motoru %v mili gidebilir\n", benimBenzinMotorum4.sahipBilgisi.isim, mesafe)
 	} else {
-		fmt.Printf("%v's gas engine cannot make it %v miles\n", benimBenzinMotorum4.sahipBilgisi.isim, mesafe)
+		fmt.Printf("❌ %v'nin benzinli motoru %v mili gidemez\n", benimBenzinMotorum4.sahipBilgisi.isim, mesafe)
 	}
 
 	if yetisebilirMi(benimElektrikMotorum2, mesafe) {
-		fmt.Printf("The electric engine can make it %v miles\n", mesafe)
+		fmt.Printf("✅ Elektrikli motor %v mili gidebilir\n", mesafe)
 	} else {
-		fmt.Printf("The electric engine cannot make it %v miles\n", mesafe)
+		fmt.Printf("❌ Elektrikli motor %v mili gidemez\n", mesafe)
 	}
 }

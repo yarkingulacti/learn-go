@@ -11,26 +11,26 @@ import "fmt"
 func dilimler() {
 	// Dilim literal ile oluşturma, boyutsuz dizi literaline benzer
 	intDilimi := []int32{1, 2, 3, 4, 5}
-	fmt.Println(intDilimi)
-	fmt.Println(len(intDilimi)) // dilimin uzunluğu
-	fmt.Println(cap(intDilimi)) // dilimin kapasitesi
+	fmt.Println("📦 Dilim örneği:", intDilimi)
+	fmt.Println("↔️ Uzunluk:", len(intDilimi)) // dilimin uzunluğu
+	fmt.Println("📐 Kapasite:", cap(intDilimi)) // dilimin kapasitesi
 
 	intDilimi = append(intDilimi, 6)
-	fmt.Println(intDilimi)
-	fmt.Println(len(intDilimi))
-	fmt.Println(cap(intDilimi))
+	fmt.Println("➕ Append sonrası dilim:", intDilimi)
+	fmt.Println("↔️ Yeni uzunluk:", len(intDilimi))
+	fmt.Println("📐 Yeni kapasite:", cap(intDilimi))
 
 	intDilimi2 := []int32{7, 8, 9}
 	intDilimi = append(intDilimi, intDilimi2...) // başka bir dilimi eklerken ... kullan
 
-	fmt.Println(intDilimi)
+	fmt.Println("📦 Başka bir dilim eklenmiş hali:", intDilimi)
 
 	uzunluk := 3
 	kapasite := 5
 
 	// make ile belirtilen uzunluk ve kapasite ile dilim oluşturma
 	intDilimi3 := make([]int32, uzunluk, kapasite)
-	fmt.Println(intDilimi3)
-	fmt.Println(len(intDilimi3))
-	fmt.Println(cap(intDilimi3))
+	fmt.Println("🛠️ make ile oluşturulan dilim (başlangıç):", intDilimi3)
+	fmt.Println("↔️ Uzunluk:", len(intDilimi3))
+	fmt.Println("📐 Kapasite:", cap(intDilimi3))
 }

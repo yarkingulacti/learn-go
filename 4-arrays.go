@@ -11,13 +11,12 @@ import "fmt"
 */
 func diziler() {
 	var intDizi [5]int8 = [5]int8{1, 2, 3, 4, 5}
-	fmt.Println(intDizi[0])
-	fmt.Println(intDizi[1:3])
+	fmt.Println("🧩 Dizi örneği:", intDizi)
+	fmt.Println("🔢 İlk eleman:", intDizi[0])
+	fmt.Println("🔪 Dilimleme (1:3):", intDizi[1:3])
 	intDizi[4] = 10
-	fmt.Println(intDizi[4])
+	fmt.Println("✏️ Değiştirilmiş 4. indeks:", intDizi[4])
 
-	// dizi işaretçileri
-	fmt.Println(&intDizi[0])
-	fmt.Println(&intDizi[1])
-	fmt.Println(&intDizi[2])
+	// dizi adresleri örneği
+	fmt.Println("📍 Dizi elemanlarının bellek adresleri:", &intDizi[0], &intDizi[1], &intDizi[2])
 }
