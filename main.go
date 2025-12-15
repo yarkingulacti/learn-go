@@ -22,4 +22,6 @@ func main() {
 	yapilar()
 	fmt.Println("📍 === İşaretçiler (Pointers) ===")
 	isaretciler()
+	fmt.Println("🚀 === Go Rutinler (Goroutines) ===")
+	goRoutineler()
 }
