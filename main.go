@@ -26,4 +26,6 @@ func main() {
 	goRoutineler()
 	fmt.Println("📡 === Kanallar (Channels) ===")
 	kanallar()
+	fmt.Println("🔢 === Generics (Tür Parametreleri) ===")
+	turParametreleri()
 }
