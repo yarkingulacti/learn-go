@@ -27,13 +27,13 @@ func goRoutineler() {
 
 	t0 := time.Now()
 
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < 100; i++ {
 		wg.Add(1)
 		go sahteDbCagrisi()
 	}
 
 	wg.Wait() // Tüm goroutinelerin bitmesini bekler
-	fmt.Printf("⏱️ Toplam süre (1 milyon sahte çağrı): %v\n", time.Since(t0))
+	fmt.Printf("⏱️ Toplam süre (100 tane sahte çağrı): %v\n", time.Since(t0))
 }
 
 var rwM = sync.RWMutex{} // Okuma/Yazma kilidi

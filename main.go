@@ -24,4 +24,6 @@ func main() {
 	isaretciler()
 	fmt.Println("🚀 === Go Rutinler (Goroutines) ===")
 	goRoutineler()
+	fmt.Println("📡 === Kanallar (Channels) ===")
+	kanallar()
 }
