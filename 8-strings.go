@@ -6,44 +6,42 @@ import (
 )
 
 /*
-Strings in Go:
-  - Immutable sequence of bytes
-  - UTF-8 encoded by default
-  - Can be indexed to access individual bytes
-  - Length can be obtained using len() function
-  - Concatenation can be done using + operator or strings.Builder for efficiency
+Metinler (Strings) Go'da:
+  - Baytların değiştirilemez sıraya dizilişi
+  - Varsayılan olarak UTF-8 kodlamalıdır
+  - Bireysel baytlara indeksleme ile erişilebilir
+  - Uzunluk `len()` ile elde edilebilir
+  - Birleştirme `+` operatörü veya verimli kullanım için `strings.Builder` ile yapılır
 */
-func funcStrings() {
-	// UTF-8 byte indexing
-	var myString = "résumé"
-	var indexed = myString[0]
-	fmt.Println(myString)
-	fmt.Println(indexed)
-	fmt.Printf("%v, %T", indexed, indexed)
-	for i, v := range myString {
+func metinler() {
+	// UTF-8 bayt indeksleme
+	var benimMetin = "résumé"
+	var indekslenen = benimMetin[0]
+	fmt.Println(benimMetin)
+	fmt.Println(indekslenen)
+	fmt.Printf("%v, %T", indekslenen, indekslenen)
+	for i, v := range benimMetin {
 		fmt.Printf("Index: %v, Value: %v", i, v)
 	}
 
-	fmt.Println("\nThe length of 'myString' is %v", len(myString))
+	fmt.Println("\nThe length of 'myString' is %v", len(benimMetin))
 
-	var strSlice []string = []string{"r", "é", "s", "u", "m", "é"}
-	var catStr string
+	var metinDilimi []string = []string{"r", "é", "s", "u", "m", "é"}
+	var birlesikMetin string
 
-	for i := range strSlice {
-		// create a new string each time
-		catStr += strSlice[i]
+	for i := range metinDilimi {
+		// her seferinde yeni string oluşturulur
+		birlesikMetin += metinDilimi[i]
 	}
 
-	// catStr[0] = 'R' // strings are immutable
+	fmt.Println(birlesikMetin)
 
-	fmt.Println(catStr)
+	var metinYapici strings.Builder
+	var metinDilimi2 []string = []string{"r", "é", "s", "u", "m", "é"}
 
-	var stringBuilder strings.Builder
-	var strSlice2 []string = []string{"r", "é", "s", "u", "m", "é"}
-
-	for i := range strSlice2 {
-		stringBuilder.WriteString(strSlice2[i])
+	for i := range metinDilimi2 {
+		metinYapici.WriteString(metinDilimi2[i])
 	}
 
-	fmt.Println(stringBuilder.String())
+	fmt.Println(metinYapici.String())
 }

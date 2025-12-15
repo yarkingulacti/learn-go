@@ -3,34 +3,34 @@ package main
 import "fmt"
 
 /*
-	Slices in Go:
-		- Dynamic, flexible view into the elements of an array
-		- Created using slice literals or the make function
-		- Have length and capacity properties
+	Go'da Dilimler (Slices):
+		- Dinamik, dizinin elemanlarına esnek bir görünüm
+		- Dilim literal veya make fonksiyonu ile oluşturulur
+		- Uzunluk (length) ve kapasite (capacity) özelliklerine sahiptir
 */
-func slices() {
-	// Creating a slice using a slice literal, similar to array literal but without size
-	intSlice := []int32{1, 2, 3, 4, 5}
-	fmt.Println(intSlice)
-	fmt.Println(len(intSlice)) // length of the slice
-	fmt.Println(cap(intSlice)) // capacity of the slice
+func dilimler() {
+	// Dilim literal ile oluşturma, boyutsuz dizi literaline benzer
+	intDilimi := []int32{1, 2, 3, 4, 5}
+	fmt.Println(intDilimi)
+	fmt.Println(len(intDilimi)) // dilimin uzunluğu
+	fmt.Println(cap(intDilimi)) // dilimin kapasitesi
 
-	intSlice = append(intSlice, 6)
-	fmt.Println(intSlice)
-	fmt.Println(len(intSlice))
-	fmt.Println(cap(intSlice))
+	intDilimi = append(intDilimi, 6)
+	fmt.Println(intDilimi)
+	fmt.Println(len(intDilimi))
+	fmt.Println(cap(intDilimi))
 
-	intSlice2 := []int32{7, 8, 9}
-	intSlice = append(intSlice, intSlice2...) // appending another slice, use ... to unpack
+	intDilimi2 := []int32{7, 8, 9}
+	intDilimi = append(intDilimi, intDilimi2...) // başka bir dilimi eklerken ... kullan
 
-	fmt.Println(intSlice)
+	fmt.Println(intDilimi)
 
-	length := 3
-	capacity := 5
+	uzunluk := 3
+	kapasite := 5
 
-	// Creating a slice using the make function with specified length and capacity
-	intSlice3 := make([]int32, length, capacity)
-	fmt.Println(intSlice3)
-	fmt.Println(len(intSlice3))
-	fmt.Println(cap(intSlice3))
+	// make ile belirtilen uzunluk ve kapasite ile dilim oluşturma
+	intDilimi3 := make([]int32, uzunluk, kapasite)
+	fmt.Println(intDilimi3)
+	fmt.Println(len(intDilimi3))
+	fmt.Println(cap(intDilimi3))
 }

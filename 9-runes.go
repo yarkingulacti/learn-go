@@ -3,22 +3,22 @@ package main
 import "fmt"
 
 /*
-Runes in Go:
-	- Alias for int32, represents a Unicode code point
-	- Can be indexed to access individual runes
-	- Useful for handling characters beyond the ASCII set
+Runeler (Runes) Go'da:
+	- int32 takma adıdır, bir Unicode kod noktasını temsil eder
+	- Bireysel runelere indeksleme ile erişilebilir
+	- ASCII dışındaki karakterleri işlemek için yararlıdır
 */
-func runes() {
-	// UTF-8 rune indexing
-	var myString = []rune{'r', 'é', 's', 'u', 'm', 'é'}
-	var indexed = myString[0]
-	fmt.Println(myString)
-	fmt.Println(indexed)
-	fmt.Printf("%v, %T", indexed, indexed)
-	for i, v := range myString {
+func runeOrnekleri() {
+	// UTF-8 rune indeksleme
+	var benimRuneDizisi = []rune{'r', 'é', 's', 'u', 'm', 'é'}
+	var indekslenen = benimRuneDizisi[0]
+	fmt.Println(benimRuneDizisi)
+	fmt.Println(indekslenen)
+	fmt.Printf("%v, %T", indekslenen, indekslenen)
+	for i, v := range benimRuneDizisi {
 		fmt.Printf("Index: %v, Value: %v", i, v)
 	}
 
-	var myRune = 'a'
-	fmt.Printf("\nmyRune = %v", myRune)
+	var benimRune = 'a'
+	fmt.Printf("\nmyRune = %v", benimRune)
 }

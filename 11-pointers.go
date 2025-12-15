@@ -3,87 +3,87 @@ package main
 import "fmt"
 
 /*
-Pointers in Go:
-	- Variables that store memory addresses of other variables
-	- Declared using the '*' operator
-	- The '&' operator is used to get the address of a variable
-	- The '*' operator is used to dereference a pointer to access the value at the address
-	- Useful for efficient memory usage and modifying variables in functions
+Pointers (İşaretçiler) Go'da:
+	- Başka bir değişkenin bellek adresini tutan değişkenlerdir
+	- '*' operatörü ile tanımlanır
+	- '&' operatörü bir değişkenin adresini almak için kullanılır
+	- '*' operatörü bir işaretçinin gösterdiği adresin değerine erişmek için kullanılır
+	- Bellek verimliliği ve fonksiyonlarda değişkenleri değiştirmek için faydalıdır
 */
-func pointers() {
-	// var p *int32 // initially nil because it doesn't point to any address
-	var p *int32 = new(int32) // allocates memory for an int32 and returns its address
-	var i int32 = 31
+func isaretciler() {
+	// var p *int32 // başlangıçta nil çünkü herhangi bir adrese işaret etmiyor
+	var isaretciP *int32 = new(int32) // int32 için bellek ayırır ve adresini döndürür
+	var sayi int32 = 31
 
-	fmt.Printf("The value p points to is: %v\n", *p) // dereferencing p gives the zero value of int32, which is 0
-	fmt.Printf("The value of i is: %v\n", i)
+	fmt.Printf("The value p points to is: %v\n", *isaretciP) // p'nin işaret ettiği değeri çözme, int32'nin sıfır değeri 0
+	fmt.Printf("The value of i is: %v\n", sayi)
 
-	*p = 42 // setting the value at the address p points to
+	*isaretciP = 42 // p'nin işaret ettiği adresteki değeri ayarlama
 
-	fmt.Printf("After setting, the value p points to is: %v\n", *p)
+	fmt.Printf("After setting, the value p points to is: %v\n", *isaretciP)
 
 	// var p2 *int32 // nil pointer
-	// *p2 = 21      // This will cause a runtime panic: dereferencing a nil pointer
+	// *p2 = 21      // Bu runtime panic'e neden olur: nil işaretçi çözümleniyor
 
-	fmt.Printf("Before setting, the value of i is: %v\n", i)
-	var p3 *int32 = &i // p3 points to the address of i
-	*p3 = 21           // setting the value at the address p3 points to, which is i
-	fmt.Printf("After setting through pointer, the value of i is: %v\n", i)
+	fmt.Printf("Before setting, the value of i is: %v\n", sayi)
+	var isaretciP3 *int32 = &sayi // p3 sayının adresine işaret eder
+	*isaretciP3 = 21              // p3'ün işaret ettiği adresteki değeri ayarlama, yani sayi
+	fmt.Printf("After setting through pointer, the value of i is: %v\n", sayi)
 
 	var k int32 = 55
 	var j int32
 
-	fmt.Printf("Before Value of k: %v\n", k) // k is 55
-	fmt.Printf("Before Value of j: %v\n", j) // j is 0
+	fmt.Printf("Before Value of k: %v\n", k) // k 55
+	fmt.Printf("Before Value of j: %v\n", j) // j 0
 
-	j = 99 // modifying j does not affect k
+	j = 99 // j'yi değiştirmek k'yi etkilemez
 
-	fmt.Printf("After Value of k: %v\n", k) // k remains 55
-	fmt.Printf("After Value of j: %v\n", j) // j is now 99
+	fmt.Printf("After Value of k: %v\n", k) // k aynı kalır
+	fmt.Printf("After Value of j: %v\n", j) // j şimdi 99
 
-	var slice = []int32{1, 2, 3}            // slices are reference types
-	fmt.Printf("Before Slice: %v\n", slice) // [1 2 3]
-	var sliceCopy = slice                   // both slice and sliceCopy point to the same underlying array
-	sliceCopy[0] = 99                       // modifying sliceCopy affects slice
+	var dilim = []int32{1, 2, 3}            // dilimler referans tiplerdir
+	fmt.Printf("Before Slice: %v\n", dilim) // [1 2 3]
+	var dilimKopya = dilim                  // dilim ve dilimKopya aynı alt diziyi işaret eder
+	dilimKopya[0] = 99                      // dilimKopya'yı değiştirmek dilimi etkiler
 
-	fmt.Printf("After Slice: %v\n", slice) // [99 2 3]
+	fmt.Printf("After Slice: %v\n", dilim) // [99 2 3]
 
-	var array = [3]int32{1, 2, 3}           // arrays are value types
-	fmt.Printf("Before Array: %v\n", array) // [1 2 3]
-	var arrayCopy = array                   // arrayCopy is a copy of array
-	arrayCopy[0] = 99                       // modifying arrayCopy does not affect array
+	var dizi = [3]int32{1, 2, 3}           // diziler değer tipidir
+	fmt.Printf("Before Array: %v\n", dizi) // [1 2 3]
+	var diziKopya = dizi                   // diziKopya dizi'nin kopyasıdır
+	diziKopya[0] = 99                      // diziKopya'yı değiştirmek diziyi etkilemez
 
-	fmt.Printf("After Array: %v\n", array) // [1 2 3]
+	fmt.Printf("After Array: %v\n", dizi) // [1 2 3]
 
-	var ages = map[string]int32{
+	var yaslar = map[string]int32{
 		"Alice": 30,
 		"Bob":   25,
-	} // maps are reference types
-	fmt.Printf("Before Map: %v\n", ages)
-	var agesCopy = ages    // both ages and agesCopy point to the same underlying data
-	agesCopy["Alice"] = 31 // modifying agesCopy affects ages
-	fmt.Printf("After Map: %v\n", ages)
+	} // haritalar referans tiplerdir
+	fmt.Printf("Before Map: %v\n", yaslar)
+	var yaslarKopya = yaslar  // yaslar ve yaslarKopya aynı veriyi gösterir
+	yaslarKopya["Alice"] = 31 // yaslarKopya'yı değiştirmek yaslar'ı etkiler
+	fmt.Printf("After Map: %v\n", yaslar)
 
-	var thing1 = [5]float64{1, 2, 3, 4, 5}
-	fmt.Printf("Before square: %v\n", thing1)
-	fmt.Printf("The memory location of thing1 array is: %p\n", &thing1)
-	var result = square(thing1)
-	fmt.Printf("After square: %v\n", result)
-	fmt.Printf("The value of thing1 is: %v", thing1)
+	var nesne1 = [5]float64{1, 2, 3, 4, 5}
+	fmt.Printf("Before square: %v\n", nesne1)
+	fmt.Printf("The memory location of thing1 array is: %p\n", &nesne1)
+	var sonuc = kare(nesne1)
+	fmt.Printf("After square: %v\n", sonuc)
+	fmt.Printf("The value of thing1 is: %v", nesne1)
 
-	var thing2 = [5]float64{1, 2, 3, 4, 5}
-	fmt.Printf("\nBefore squarePointer: %v\n", thing2)
-	fmt.Printf("The memory location of thing2 array is: %p\n", &thing2)
-	var result2 = squarePointer(&thing2)
-	fmt.Printf("After squarePointer: %v\n", result2)
-	fmt.Printf("The value of thing2 is: %v", thing2)
+	var nesne2 = [5]float64{1, 2, 3, 4, 5}
+	fmt.Printf("\nBefore squarePointer: %v\n", nesne2)
+	fmt.Printf("The memory location of thing2 array is: %p\n", &nesne2)
+	var sonuc2 = kareIsaretci(&nesne2)
+	fmt.Printf("After squarePointer: %v\n", sonuc2)
+	fmt.Printf("The value of thing2 is: %v", nesne2)
 }
 
-// This way we are allocating new memory for the array inside the function
-// and returning a new array, leaving the original array unchanged.
-// This can cause larger memory usage if the array is large.
-// Instead, we could pass a pointer to the array to modify it in place.
-func square(thing2 [5]float64) [5]float64 {
+// Bu şekilde fonksiyon içinde dizinin yeni belleğini ayırıp yeni bir dizi döndürüyoruz
+// ve orijinal dizi değişmeden kalıyor.
+// Bu, dizi büyükse daha fazla bellek kullanımıyla sonuçlanabilir.
+// Bunun yerine dizinin işaretçisini geçirip yerinde değiştirebiliriz.
+func kare(thing2 [5]float64) [5]float64 {
 	fmt.Printf("The memory location of thing2 array in square func is: %p\n", &thing2)
 	for i := range thing2 {
 		thing2[i] = thing2[i] * thing2[i]
@@ -92,10 +92,9 @@ func square(thing2 [5]float64) [5]float64 {
 	return thing2
 }
 
-// This way we are passing a pointer to the array, allowing us to modify
-// the original array in place without allocating new memory for a copy.
-// This is more memory efficient, especially for large arrays.
-func squarePointer(thing2 *[5]float64) [5]float64 {
+// Bu şekilde dizinin işaretçisini geçiriyoruz, orijinal diziyi yerinde değiştirmemizi sağlar
+// ve kopya için yeni bellek ayırmaz. Bu özellikle büyük diziler için daha verimlidir.
+func kareIsaretci(thing2 *[5]float64) [5]float64 {
 	fmt.Printf("The memory location of thing2 array in squarePointer func is: %p\n", thing2)
 	for i := range thing2 {
 		thing2[i] = thing2[i] * thing2[i]

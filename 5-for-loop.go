@@ -3,28 +3,28 @@ package main
 import "fmt"
 
 /*
-	For Loops in Go:
-		- Used for iterating over collections or executing code repeatedly
-		- Three forms: traditional, range-based, and while-like
+	For Döngüleri (For Loops) Go'da:
+		- Koleksiyonlar üzerinde yineleme yapmak veya kodu tekrarlı çalıştırmak için kullanılır
+		- Üç formu vardır: klasik, range tabanlı ve while benzeri
 */
-func forLoop() {
-	intArr := [5]int{10, 20, 30, 40, 50}
-	for index, value := range intArr {
-		fmt.Printf("Index: %v, Value: %v\n", index, value)
+func dongu() {
+	intDizi := [5]int{10, 20, 30, 40, 50}
+	for indeks, deger := range intDizi {
+		fmt.Printf("Index: %v, Value: %v\n", indeks, deger)
 	}
 
-	var i = 10
+	var sayac = 10
 
-	for i >= 0 {
-		if i == 0 {
+	for sayac >= 0 {
+		if sayac == 0 {
 			break
 		}
 
-		fmt.Println(i)
-		i--
+		fmt.Println(sayac)
+		sayac--
 	}
 
-	for j := 0; j < 5; j++ {
-		fmt.Println(j)
+	for sayac2 := 0; sayac2 < 5; sayac2++ {
+		fmt.Println(sayac2)
 	}
 }

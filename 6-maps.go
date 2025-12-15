@@ -3,37 +3,37 @@ package main
 import "fmt"
 
 /*
-	Maps in Go:
-		- Unordered collection of key-value pairs
-		- Keys are unique and used to access values
-		- Created using make or map literals
-		- Zero-valued by default (e.g., 0 for int, "" for string)
+	Go'da Haritalar (Maps):
+		- Anahtar-değer çiftlerinden oluşan sırasız koleksiyon
+		- Anahtarlar benzersizdir ve değerlere erişimde kullanılır
+		- make veya map literal ile oluşturulur
+		- Varsayılan olarak sıfır değere sahiptir (ör. int için 0, string için "")
 */
-func maps() {
-	// Creating maps
-	myMap := make(map[string]uint8)
-	fmt.Println(myMap)
+func haritalar() {
+	// Harita oluşturma
+	benimHarita := make(map[string]uint8)
+	fmt.Println(benimHarita)
 
-	// Adding key-value pairs while assigning
-	myMap2 := map[string]uint8{"Adam": 30, "Eve": 28}
-	fmt.Println(myMap2["Adam"])
-	fmt.Println(myMap2["Sarah"]) // zero default value 0 for
+	// Atama sırasında anahtar-değer çifti ekleme
+	benimHarita2 := map[string]uint8{"Adam": 30, "Eve": 28}
+	fmt.Println(benimHarita2["Adam"])
+	fmt.Println(benimHarita2["Sarah"]) // varsayılan değer 0
 
-	age, exists := myMap2["Sarah"]
+	yas, varMi := benimHarita2["Sarah"]
 
-	if exists {
-		fmt.Println(age)
+	if varMi {
+		fmt.Println(yas)
 	} else {
 		fmt.Println("Key does not exist")
 	}
 
-	// deleting a key-value pair
-	delete(myMap2, "Adam")
+	// bir anahtar-değer çiftini silme
+	delete(benimHarita2, "Adam")
 
-	fmt.Println(myMap2)
+	fmt.Println(benimHarita2)
 
-	for key, value := range myMap2 {
-		fmt.Printf("Name: %v, Age: %v\n", key, value)
+	for anahtar, deger := range benimHarita2 {
+		fmt.Printf("Name: %v, Age: %v\n", anahtar, deger)
 	}
 
 }

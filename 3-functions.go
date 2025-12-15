@@ -2,42 +2,42 @@ package main
 
 import "fmt"
 
-func functions() {
-	// common function error handling pattern
-	var divisionResult, remainder, err = intDivision(10, 0)
+func fonksiyonlar() {
+	// yaygın fonksiyon hata yakalama deseni
+	var bolumSonucu, kalan, hata = tamsayiBolme(10, 0)
 
-	if err != nil {
-		fmt.Printf("Error occurred during division %v", err.Error())
-	} else if remainder == 0 {
-		fmt.Printf("The result of the integer division is %v", divisionResult)
+	if hata != nil {
+		fmt.Printf("Error occurred during division %v", hata.Error())
+	} else if kalan == 0 {
+		fmt.Printf("The result of the integer division is %v", bolumSonucu)
 	} else {
-		fmt.Printf("The result of the integer division is %v with a remainder of %v", divisionResult, remainder)
+		fmt.Printf("The result of the integer division is %v with a remainder of %v", bolumSonucu, kalan)
 	}
 
 	switch {
-	case err != nil:
-		fmt.Printf("Error occurred during division %v", err.Error())
-	case remainder == 0:
-		fmt.Printf("The result of the integer division is %v", divisionResult)
+	case hata != nil:
+		fmt.Printf("Error occurred during division %v", hata.Error())
+	case kalan == 0:
+		fmt.Printf("The result of the integer division is %v", bolumSonucu)
 	default:
-		fmt.Printf("The result of the integer division is %v with a remainder of %v", divisionResult, remainder)
+		fmt.Printf("The result of the integer division is %v with a remainder of %v", bolumSonucu, kalan)
 	}
 
-	switch remainder {
+	switch kalan {
 	case 0:
-		fmt.Printf("The result of the integer division is %v", divisionResult)
+		fmt.Printf("The result of the integer division is %v", bolumSonucu)
 	case 1:
-		fmt.Printf("The result of the integer division is %v with a remainder of 1", divisionResult)
+		fmt.Printf("The result of the integer division is %v with a remainder of 1", bolumSonucu)
 	default:
-		fmt.Printf("The result of the integer division is %v with a remainder of %v", divisionResult, remainder)
+		fmt.Printf("The result of the integer division is %v with a remainder of %v", bolumSonucu, kalan)
 	}
 }
 
-func intDivision(dividend, divisor int) (int, int, error) {
-	if divisor == 0 {
+func tamsayiBolme(bolunen, bolen int) (int, int, error) {
+	if bolen == 0 {
 		return 0, 0, fmt.Errorf("divisor cannot be zero")
 	}
-	var result int = dividend / divisor
-	var remainder int = dividend % divisor
-	return result, remainder, nil
+	var sonuc int = bolunen / bolen
+	var kalan int = bolunen % bolen
+	return sonuc, kalan, nil
 }

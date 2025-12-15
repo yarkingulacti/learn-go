@@ -2,85 +2,79 @@ package main
 
 import "fmt"
 
-type gasEngine struct {
-	mpg       uint8
-	galons    uint8
-	ownerInfo owner // gasEngine.ownerInfo.name
-	int             // default value 0, gasEngine.int
+type benzinMotoru struct {
+	yakitVerimi  uint8
+	galon        uint8
+	sahipBilgisi sahip // benzinMotoru.sahipBilgisi.isim
+	sayisal      int   // default değer 0
 }
 
-type electricEngine struct {
+type elektrikMotoru struct {
 	mpkwh uint8
 	kwh   uint8
 }
 
-type engine interface {
-	milesLeft() uint8
+type motor interface {
+	kalanMil() uint8
 }
 
-// type gasEngine struct {
-// 	mpg       uint8
-// 	galons    uint8
-// 	owner // gasEngine.name
-// }
-
-type owner struct {
-	name string
+type sahip struct {
+	isim string
 }
 
-// with func (e gasEngine) we define a method for gasEngine type
-func (e gasEngine) milesLeft() uint8 {
-	return e.mpg * e.galons
+// benzinMotoru tipi için bir metod tanımlıyoruz
+func (b benzinMotoru) kalanMil() uint8 {
+	return b.yakitVerimi * b.galon
 }
 
-func (e electricEngine) milesLeft() uint8 {
+func (e elektrikMotoru) kalanMil() uint8 {
 	return e.mpkwh * e.kwh
 }
 
-func canMakeIt(e engine, distance uint8) bool {
-	return e.milesLeft() >= distance
+func yetisebilirMi(m motor, mesafe uint8) bool {
+	return m.kalanMil() >= mesafe
 }
 
 /*
-Structs in Go:
-	- Custom data types that group related fields
-	- Defined using the 'type' and 'struct' keywords
-	- Fields can be accessed and modified using dot notation
-	- Support for methods, enabling behavior associated with the struct
+Yapılar (Structs) Go'da:
+	- İlgili alanları gruplayan özel veri tipleri
+	- 'type' ve 'struct' anahtar kelimeleri ile tanımlanır
+	- Alanlara nokta gösterimi ile erişilir ve değiştirilebilir
+	- Metod desteği ile davranış eklenebilir
 */
-func structs() {
-	var myGasEngine gasEngine = gasEngine{mpg: 30, galons: 10, ownerInfo: owner{name: "John"}, int: 10}
-	myGasEngine.mpg = 20
-	var myGasEngine2 gasEngine = gasEngine{30, 10, owner{"John"}, 10} // assigned by order of declaration
+func yapilar() {
+	var benimBenzinMotorum benzinMotoru = benzinMotoru{yakitVerimi: 30, galon: 10, sahipBilgisi: sahip{isim: "John"}, sayisal: 10}
+	benimBenzinMotorum.yakitVerimi = 20
+	var benimBenzinMotorum2 benzinMotoru = benzinMotoru{30, 10, sahip{"John"}, 10} // bildirime göre atama
 
-	fmt.Println(myGasEngine2)
-	fmt.Printf("%v's gas engine can go %v miles\n", myGasEngine2.ownerInfo.name, myGasEngine2.mpg*myGasEngine2.galons)
+	fmt.Println(benimBenzinMotorum2)
+	fmt.Printf("%v's gas engine can go %v miles\n", benimBenzinMotorum2.sahipBilgisi.isim, benimBenzinMotorum2.yakitVerimi*benimBenzinMotorum2.galon)
 
-	//anonymous struct definition and instantiation
-	var myElectricEngine = struct {
+	// anonim struct tanımı ve örneklendirme
+	var benimElektrikMotorum = struct {
 		batteryCapacity uint16
-		ownerInfo       owner
-	}{400, owner{"Alice"}}
+		sahipBilgisi    sahip
+	}{400, sahip{"Alice"}}
 
-	fmt.Println(myElectricEngine)
+	fmt.Println(benimElektrikMotorum)
 
-	var myGasEngine3 gasEngine = gasEngine{mpg: 25, galons: 8, ownerInfo: owner{name: "Bob"}, int: 5}
-	fmt.Printf("%v's gas engine can go %v miles\n", myGasEngine3.ownerInfo.name, myGasEngine3.milesLeft())
+	var benimBenzinMotorum3 benzinMotoru = benzinMotoru{yakitVerimi: 25, galon: 8, sahipBilgisi: sahip{isim: "Bob"}, sayisal: 5}
+	fmt.Printf("%v's gas engine can go %v miles\n", benimBenzinMotorum3.sahipBilgisi.isim, benimBenzinMotorum3.kalanMil())
 
-	var distance uint8 = 200
+	var mesafe uint8 = 200
 
-	var myGasEngine4 gasEngine = gasEngine{mpg: 30, galons: 10, ownerInfo: owner{name: "John"}, int: 10}
-	var myElectricEngine2 electricEngine = electricEngine{mpkwh: 4, kwh: 50}
+	var benimBenzinMotorum4 benzinMotoru = benzinMotoru{yakitVerimi: 30, galon: 10, sahipBilgisi: sahip{isim: "John"}, sayisal: 10}
+	var benimElektrikMotorum2 elektrikMotoru = elektrikMotoru{mpkwh: 4, kwh: 50}
 
-	if canMakeIt(myGasEngine4, distance) {
-		fmt.Printf("%v's gas engine can make it %v miles\n", myGasEngine4.ownerInfo.name, distance)
+	if yetisebilirMi(benimBenzinMotorum4, mesafe) {
+		fmt.Printf("%v's gas engine can make it %v miles\n", benimBenzinMotorum4.sahipBilgisi.isim, mesafe)
 	} else {
-		fmt.Printf("%v's gas engine cannot make it %v miles\n", myGasEngine4.ownerInfo.name, distance)
+		fmt.Printf("%v's gas engine cannot make it %v miles\n", benimBenzinMotorum4.sahipBilgisi.isim, mesafe)
 	}
 
-	if canMakeIt(myElectricEngine2, distance) {
-		fmt.Printf("The electric engine can make it %v miles\n", distance)
+	if yetisebilirMi(benimElektrikMotorum2, mesafe) {
+		fmt.Printf("The electric engine can make it %v miles\n", mesafe)
 	} else {
-		fmt.Printf("The electric engine cannot make it %v miles\n", distance)
+		fmt.Printf("The electric engine cannot make it %v miles\n", mesafe)
 	}
 }

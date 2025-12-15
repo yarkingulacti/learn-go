@@ -6,63 +6,62 @@ import (
 )
 
 /*
-Primitive Data Types in Go:
-- Integer Types: int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64
-- Floating-Point Types: float32, float64
-- String Type: string
-- Rune Type: rune (alias for int32, represents a Unicode code point)
-- Boolean Type: bool
+Go'da Temel Veri Tipleri:
+- Tam Sayı Tipleri: int, int8, int16, int32, int64, uint, uint8, uint16, uint32, uint64
+- Ondalık Sayı Tipleri: float32, float64
+- Metin Tipi: string
+- Rune Tipi: rune (int32 takma adı, Unicode kod noktası temsil eder)
+- Boolean Tipi: bool
 */
-func variables() {
-	var intNum int16 = 32767
-	fmt.Println(intNum)
+func degiskenler() {
+	var tamsayi int16 = 32767
+	fmt.Println(tamsayi)
 
-	var floatNumUnprecise float32 = 12345678.9 // precision loss
-	var floatNumPrecise float64 = 12345678.9   // more precise
+	var ondalikAzHassas float32 = 12345678.9 // hassasiyet kaybı
+	var ondalikHassas float64 = 12345678.9   // daha hassas
 
-	fmt.Println(floatNumUnprecise) // 12345679
-	fmt.Println(floatNumPrecise)   // 12345678.9
+	fmt.Println(ondalikAzHassas)
+	fmt.Println(ondalikHassas)
 
-	var floatNum32 float32 = 10.1
-	var intNum32 int32 = 2
-	// var result float32 = floatNum32 + intNum32 // Wrong
-	var result float32 = floatNum32 + float32(intNum32) // Correct
+	var ondalik32 float32 = 10.1
+	var tamsayi32 int32 = 2
+	var sonuc float32 = ondalik32 + float32(tamsayi32) // doğru dönüşüm
 
-	fmt.Println(result)
+	fmt.Println(sonuc)
 
-	var myString string = "Hello, \nGo!"
+	var benimMetin string = "Hello, \nGo!"
 
-	fmt.Println(myString)
-	fmt.Println(len("ğ"))                    // 2 (2 bytes in UTF-8)
+	fmt.Println(benimMetin)
+	fmt.Println(len("ğ"))                    // 2 (UTF-8'de 2 byte)
 	fmt.Println(utf8.RuneCountInString("ğ")) // 1 (1 rune)
 
-	var myRune rune = 'a' //97 in ASCII
-	fmt.Println(myRune)
+	var benimRune rune = 'a' // ASCII'de 97
+	fmt.Println(benimRune)
 
-	var isTrue bool = true
-	fmt.Println(isTrue)
+	var dogruMu bool = true
+	fmt.Println(dogruMu)
 
-	var anotherBool bool // default value is false
-	fmt.Println(anotherBool)
+	var digerBool bool // varsayılan değer false
+	fmt.Println(digerBool)
 
-	var myString2 string
-	fmt.Println(myString2) // default value is empty string
+	var benimMetin2 string
+	fmt.Println(benimMetin2) // varsayılan boş string
 
-	var myRune2 rune
-	fmt.Println(myRune2) // default value is 0
+	var benimRune2 rune
+	fmt.Println(benimRune2) // varsayılan 0
 
-	var myText = "text" // type is inferred as string
+	var metinim = "text" // türü string olarak çıkarılır
 
-	fmt.Println(myText)
+	fmt.Println(metinim)
 
-	myShort := "short variable declaration" // type inference
+	kisaDegisken := "short variable declaration" // tür çıkarımı
 
-	fmt.Println(myShort)
+	fmt.Println(kisaDegisken)
 
-	var var1, var2, var3 int = 1, 2, 3
-	fmt.Println(var1, var2, var3)
+	var sayi1, sayi2, sayi3 int = 1, 2, 3
+	fmt.Println(sayi1, sayi2, sayi3)
 
-	const myConst = "This is a constant and cannot be changed. Also, it must be initialized at declaration."
+	const benimSabit = "This is a constant and cannot be changed. Also, it must be initialized at declaration."
 
-	fmt.Println(myConst)
+	fmt.Println(benimSabit)
 }

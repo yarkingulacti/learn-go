@@ -2,20 +2,20 @@ package main
 
 import "fmt"
 
-func conditions() {
+func kosullar() {
 	if 5 > 3 {
 		fmt.Println("5 is greater than 3")
 	}
 
-	var number int = 10
+	var sayi int = 10
 
-	if number%2 == 0 {
+	if sayi%2 == 0 {
 		fmt.Println("The number is even")
 	} else {
 		fmt.Println("The number is odd")
 	}
 
-	switch number {
+	switch sayi {
 	case 1:
 		fmt.Println("The number is one")
 	case 5:
@@ -27,11 +27,11 @@ func conditions() {
 	}
 
 	switch {
-	case number < 0:
+	case sayi < 0:
 		fmt.Println("The number is negative")
-	case number == 0:
+	case sayi == 0:
 		fmt.Println("The number is zero")
-	case number > 0:
+	case sayi > 0:
 		fmt.Println("The number is positive")
 	}
 }
