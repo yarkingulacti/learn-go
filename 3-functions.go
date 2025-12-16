@@ -36,6 +36,8 @@ func fonksiyonlar() {
 }
 
 func tamsayiBolme(bolunen, bolen int) (int, int, error) {
+	// bolunen ve bolen parametrelerinin her ikisi de int türündedir.
+
 	if bolen == 0 {
 		return 0, 0, fmt.Errorf("bölen sıfır olamaz")
 	}

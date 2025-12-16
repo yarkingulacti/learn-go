@@ -70,6 +70,7 @@ func degiskenler() {
 	fmt.Printf("3. Tamsayı interpolasyonu ile: %d\n", tamsayi)
 	fmt.Printf("4. Ondalık interpolasyonu ile: %f\n", ondalikHassas)
 	fmt.Printf("5. Ondalık(formatlı) interpolasyonu ile: %.2f\n", ondalikHassas)
+	fmt.Printf("6. Bool interpolasyonu ile: %t\n", dogruMu)
 
 	const isim = "Yarkın"
 	const soyisim = "Gülaçtı"
