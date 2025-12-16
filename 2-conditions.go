@@ -5,6 +5,8 @@ import "fmt"
 func kosullar() {
 	if 5 > 3 {
 		fmt.Println("👍 Örnek karşılaştırma: 5, 3'ten büyüktür")
+	} else {
+		fmt.Println("👎 Örnek karşılaştırma: 5, 3'ten büyük değildir")
 	}
 
 	var sayi int = 10
