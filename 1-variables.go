@@ -71,4 +71,9 @@ func degiskenler() {
 	fmt.Printf("4. Ondalık interpolasyonu ile: %f\n", ondalikHassas)
 	fmt.Printf("5. Ondalık(formatlı) interpolasyonu ile: %.2f\n", ondalikHassas)
 
+	const isim = "Yarkın"
+	const soyisim = "Gülaçtı"
+	tamIsim := fmt.Sprintf("%s %s", isim, soyisim)
+
+	fmt.Println("👤 Tam isim oluşturma (Sprintf ile):", tamIsim)
 }
