@@ -9,6 +9,12 @@ func kosullar() {
 		fmt.Println("👎 Örnek karşılaştırma: 5, 3'ten büyük değildir")
 	}
 
+	if rakam := 7; rakam%2 == 0 {
+		fmt.Println("🔢 Rakam kontrolü: rakam çifttir (even)")
+	} else {
+		fmt.Println("🔢 Rakam kontrolü: rakam tektir (odd)")
+	}
+
 	var sayi int = 10
 
 	if sayi%2 == 0 {
