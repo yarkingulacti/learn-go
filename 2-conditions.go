@@ -10,6 +10,7 @@ func kosullar() {
 	}
 
 	if rakam := 7; rakam%2 == 0 {
+		fmt.Printf("🔢 Rakam: %d\n", rakam)
 		fmt.Println("🔢 Rakam kontrolü: rakam çifttir (even)")
 	} else {
 		fmt.Println("🔢 Rakam kontrolü: rakam tektir (odd)")
