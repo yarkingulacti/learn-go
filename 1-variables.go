@@ -56,7 +56,7 @@ func degiskenler() {
 	var metinim = "text" // türü string olarak çıkarılır
 	fmt.Println("✳️ Tür çıkarmaya örnek (string):", metinim)
 
-	kisaDegisken := "short variable declaration" // tür çıkarımı
+	kisaDegisken := "kısa değişken beyanı" // tür çıkarımı(type inference)
 	fmt.Println("📝 Kısa değişken beyanı örneği:", kisaDegisken)
 
 	var sayi1, sayi2, sayi3 int = 1, 2, 3
@@ -64,4 +64,11 @@ func degiskenler() {
 
 	const benimSabit = "Bu bir sabittir; değeri değiştirilemez ve tanımlanırken başlatılmalıdır."
 	fmt.Println("📌 Sabit örneği:", benimSabit)
+
+	fmt.Printf("Değişkenleri gösterme;\n1. Normal interpolasyon örneği: %v\n", benimMetin)
+	fmt.Printf("2. Metin interpolasyonu ile: %s\n", benimMetin)
+	fmt.Printf("3. Tamsayı interpolasyonu ile: %d\n", tamsayi)
+	fmt.Printf("4. Ondalık interpolasyonu ile: %f\n", ondalikHassas)
+	fmt.Printf("5. Ondalık(formatlı) interpolasyonu ile: %.2f\n", ondalikHassas)
+
 }
