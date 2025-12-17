@@ -1,4 +1,4 @@
-package main
+package yapilar
 
 import "fmt"
 
@@ -7,6 +7,11 @@ type benzinMotoru struct {
 	galon        uint8
 	sahipBilgisi sahip // benzinMotoru.sahipBilgisi.isim
 	sayisal      int   // default değer 0
+	// kazaKaydi    struct { // anonim yapı tanımı, tek seferlik kullanım için
+	// 	adet          int
+	// 	sonKazaTarihi string
+	// 	hasarMiktari  float64
+	// }
 }
 
 type elektrikMotoru struct {
@@ -22,6 +27,9 @@ type sahip struct {
 	isim string
 }
 
+// Boş yapı tanımı isimlendirilmiş
+type emptyStruct struct{}
+
 // benzinMotoru tipi için bir metod tanımlıyoruz
 func (b benzinMotoru) kalanMil() uint8 {
 	return b.yakitVerimi * b.galon
@@ -35,19 +43,25 @@ func yetisebilirMi(m motor, mesafe uint8) bool {
 	return m.kalanMil() >= mesafe
 }
 
+func main() {
+	YapilarIcerik()
+}
+
 /*
 Yapılar (Structs) Go'da:
 	- İlgili alanları gruplayan özel veri tipleri
 	- 'type' ve 'struct' anahtar kelimeleri ile tanımlanır
+	- Alanlar'ın dizilimi memory layout'u belirler ve memory kullanımı için önemlidir
 	- Alanlara nokta gösterimi ile erişilir ve değiştirilebilir
 	- Metod desteği ile davranış eklenebilir
+	- Anonim yapılar tek seferlik kullanım için tanımlanabilir
 
 Bu dosyada hem benzinli hem elektrikli motor örnekleri ve
 interface kullanımı gösterilmektedir. Örneklerde sahip bilgisi
 ile birlikte motorun kalan mil hesaplaması ve interface uyumu
 gösterilir. 🚗🔋
 */
-func yapilar() {
+func YapilarIcerik() {
 	var benimBenzinMotorum benzinMotoru = benzinMotoru{yakitVerimi: 30, galon: 10, sahipBilgisi: sahip{isim: "John"}, sayisal: 10}
 	benimBenzinMotorum.yakitVerimi = 20
 	var benimBenzinMotorum2 benzinMotoru = benzinMotoru{30, 10, sahip{"John"}, 10} // bildirime göre atama
@@ -82,4 +96,11 @@ func yapilar() {
 	} else {
 		fmt.Printf("❌ Elektrikli motor %v mili gidemez\n", mesafe)
 	}
+
+	// Anonim bo	ş yapı tanımı
+	anomimBosYapi := struct{}{}
+	_ = anomimBosYapi
+
+	isimliBosYapi := emptyStruct{}
+	_ = isimliBosYapi
 }
