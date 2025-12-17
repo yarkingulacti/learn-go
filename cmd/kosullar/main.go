@@ -1,8 +1,17 @@
-package main
+package kosullar
 
 import "fmt"
 
-func kosullar() {
+func main() {
+	KosullarIcerik()
+}
+
+/*
+	Go'da Koşullar:
+		- if-else yapısı
+		- switch-case yapısı
+*/
+func KosullarIcerik() {
 	if 5 > 3 {
 		fmt.Println("👍 Örnek karşılaştırma: 5, 3'ten büyüktür")
 	} else {

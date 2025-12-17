@@ -1,9 +1,13 @@
-package main
+package degiskenler
 
 import (
 	"fmt"
 	"unicode/utf8"
 )
+
+func main() {
+	DegiskenlerIcerik()
+}
 
 /*
 Go'da Temel Veri Tipleri:
@@ -13,7 +17,7 @@ Go'da Temel Veri Tipleri:
 - Rune Tipi: rune (int32 takma adı, Unicode kod noktası temsil eder)
 - Boolean Tipi: bool
 */
-func degiskenler() {
+func DegiskenlerIcerik() {
 	// Bu fonksiyon Go'nun temel değişken tiplerini gösterir.
 	// Her örnek için kısa bir açıklama ve emoji ile kullanıcıya bilgi veriyoruz.
 	var tamsayi int16 = 32767
