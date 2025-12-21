@@ -5,6 +5,7 @@ import (
 	"learn_go/cmd/arayuzler"
 	"learn_go/cmd/degiskenler"
 	"learn_go/cmd/fonksiyonlar"
+	"learn_go/cmd/hatalar"
 	"learn_go/cmd/kosullar"
 	"learn_go/cmd/yapilar"
 )
@@ -30,6 +31,8 @@ func main() {
 	yapilar.YapilarIcerik()
 	fmt.Println("🧩 === Arayüzler (Interfaces) ===")
 	arayuzler.ArayuzlerIcerik()
+	fmt.Println("✅ === Hatalar (Errors) ===")
+	hatalar.HatalarIcerik()
 	// fmt.Println("📍 === İşaretçiler (Pointers) ===")
 	// isaretciler()
 	// fmt.Println("🚀 === Go Rutinler (Goroutines) ===")
