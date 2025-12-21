@@ -2,6 +2,7 @@ package main // başlangıç paket adı
 
 import (
 	"fmt"
+	"learn_go/cmd/arayuzler"
 	"learn_go/cmd/degiskenler"
 	"learn_go/cmd/fonksiyonlar"
 	"learn_go/cmd/kosullar"
@@ -27,6 +28,8 @@ func main() {
 	// runeOrnekleri()
 	fmt.Println("🏗️ === Yapılar (Structs) ===")
 	yapilar.YapilarIcerik()
+	fmt.Println("🧩 === Arayüzler (Interfaces) ===")
+	arayuzler.ArayuzlerIcerik()
 	// fmt.Println("📍 === İşaretçiler (Pointers) ===")
 	// isaretciler()
 	// fmt.Println("🚀 === Go Rutinler (Goroutines) ===")
