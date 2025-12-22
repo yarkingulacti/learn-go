@@ -1,13 +1,8 @@
-package main
+package donguler
 
 import "fmt"
 
-/*
-	For Döngüleri (For Loops) Go'da:
-		- Koleksiyonlar üzerinde yineleme yapmak veya kodu tekrarlı çalıştırmak için kullanılır
-		- Üç formu vardır: klasik, range tabanlı ve while benzeri
-*/
-func dongu() {
+func DongulerIcerik() {
 	intDizi := [5]int{10, 20, 30, 40, 50}
 	fmt.Println("🔁 Range ile yineleme örneği:")
 	for indeks, deger := range intDizi {
@@ -30,4 +25,8 @@ func dongu() {
 	for sayac2 := 0; sayac2 < 5; sayac2++ {
 		fmt.Println("indeks:", sayac2)
 	}
+}
+
+func main() {
+	DongulerIcerik()
 }
